@@ -11,6 +11,7 @@ import {
   BsPerson,
   BsPersonFill,
 } from "react-icons/bs";
+import Link from "next/link";
 //
 import SidebarOption from "./SidebarOption";
 import { useState } from "react";
@@ -46,7 +47,7 @@ function Sidebar({ initialSelectedIcon = "Home" }) {
           setSelected={setSelected}
           redirect={"/"}
         />
-        <SidebarOption
+        {/* <SidebarOption
           Icon={selected === "Explore" ? FaHashtag : BiHash}
           text="Explore"
           isActive={Boolean(selected === "Explore")}
@@ -75,7 +76,7 @@ function Sidebar({ initialSelectedIcon = "Home" }) {
           text="Lists"
           isActive={Boolean(selected === "Lists")}
           setSelected={setSelected}
-        />
+        /> */}
         <SidebarOption
           Icon={selected === "Profile" ? BsPersonFill : BsPerson}
           text="Profile"

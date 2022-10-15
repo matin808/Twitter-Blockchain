@@ -12,23 +12,26 @@ const tweets = [
   {
     displayName: "Matin",
     userName: "0x85dsd5sdc1sdc5s66464sd6c64sd6c6sD",
-    avatar: "",
+    avatar:
+      "https://amazingheights.blog/wp-content/uploads/2021/10/twitter-bitcoin.png",
     text: "GM",
     isProfileImageNft: false,
     timestamp: "2021-02-14T12:00:00.000Z",
   },
   {
-    displayName: "Matin",
+    displayName: "Noman",
     userName: "0x85dsd5sdc1sdc5s66464sd6c64sd6c6sD",
-    avatar: "",
+    avatar:
+      "https://bluewhaleapps.com/wp-content/uploads/2020/01/Best-Blockchain-Twitter-Accounts-to-Follow.jpg",
     text: "GM",
     isProfileImageNft: false,
     timestamp: "2022-02-14T12:00:00.000Z",
   },
   {
-    displayName: "Matin",
+    displayName: "John",
     userName: "0x85dsd5sdc1sdc5s66464sd6c64sd6c6sD",
-    avatar: "",
+    avatar:
+      "https://www.businessinsider.in/photo/84548663/twitter-built-on-blockchain-will-let-users-monetise-their-posts-and-come-up-with-their-own-rules.jpg?imgsize=281340",
     text: "GM",
     isProfileImageNft: false,
     timestamp: "2022-10-14T12:00:00.000Z",

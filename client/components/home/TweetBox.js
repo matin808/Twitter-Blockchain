@@ -28,7 +28,11 @@ function TweetBox() {
   return (
     <div className={style.wrapper}>
       <div className={style.tweetBoxLeft}>
-        <img className={style.profileImage} alt="Profile" src="" />
+        <img
+          className={style.profileImage}
+          alt="Profile"
+          src="https://coincentral.com/wp-content/uploads/2018/08/Group-27-874x437.png"
+        />
       </div>
       <div className={style.tweetBoxRight}>
         <form>

@@ -4,7 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import { news, whoToFollow } from "../lib/static";
 
 const style = {
-  wrapper: `flex-[1] p-4`,
+  wrapper: `flex-[1] p-3`,
   searchBar: `flex items-center bg-[#243340] p-2 rounded-3xl`,
   searchIcon: `text-[#8899a6] mr-2`,
   inputBox: `bg-transparent outline-none`,
@@ -45,11 +45,11 @@ function Widgets() {
               <div className={style.newsItemTitle}>{item.title}</div>
             </div>
             <div className={style.newsItemRight}>
-              <img
+              {/* <img
                 src={item.image}
                 alt={item.category}
                 className={style.newsItemImage}
-              />
+              /> */}
             </div>
           </div>
         ))}
@@ -60,11 +60,11 @@ function Widgets() {
         {whoToFollow.map((item, index) => (
           <div key={index} className={style.item}>
             <div className={style.followAvatarContainer}>
-              <img
+              {/* <img
                 src={item.avatar}
                 alt={item.handle}
                 className={style.followAvatar}
-              />
+              /> */}
             </div>
             <div className={style.profileDetails}>
               <div className={style.name}>{item.name}</div>
