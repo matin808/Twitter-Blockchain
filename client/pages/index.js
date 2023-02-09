@@ -48,7 +48,7 @@ export default function Home() {
   );
 
   const noUserFound = (
-    <div className={style.loginContainer}>
+    <div style={{ height: "100vh" }} className={style.loginContainer}>
       <Image src={metamaskLogo} width={200} height={200} />
       <div
         className={style.walletConnectButton}
@@ -61,7 +61,7 @@ export default function Home() {
   );
 
   const noMetaMaskFound = (
-    <div className={style.loginContainer}>
+    <div style={{ height: "100vh" }} className={style.loginContainer}>
       <Image src={metamaskLogo} width={200} height={200} />
       <div className={style.loginContent}>
         <a
@@ -86,7 +86,7 @@ export default function Home() {
   );
 
   const loading = (
-    <div className={style.loginContainer}>
+    <div style={{ height: "100vh" }} className={style.loginContainer}>
       <div className={style.loginContent}>Loading...</div>
     </div>
   );
