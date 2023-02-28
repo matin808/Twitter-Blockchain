@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Post from "../Post";
+import { TwitterContext } from "../../context/TwitterContext";
 const style = {
   wrapper: `no-scrollbar`,
   header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
@@ -37,18 +38,23 @@ const tweets = [
 ];
 
 const ProfileTweets = () => {
+  const { currentAccount, currentUser } = useContext(TwitterContext);
   return (
     <div>
-      {tweets?.map((tweet, index) => (
+      {currentUser?.tweets?.map((tweet, index) => (
         <Post
           key={index}
-          displayName="Matin Kadri"
-          userName={`${tweet.userName.slice(0, 4)}...${tweet.userName.slice(
+          displayName={
+            currentUser.name === "Unnamed"
+              ? `${currentAccount.slice(0, 4)}...${currentAccount.slice(-4)}`
+              : currentUser.name
+          }
+          userName={`${currentAccount.slice(0, 4)}...${currentAccount.slice(
             -4
           )}`}
-          text={tweet.text}
-          avatar={tweet.avatar}
-          isProfileImageNft={tweet.isProfileImageNft}
+          text={tweet.tweet}
+          avatar={currentUser.profileImage}
+          isProfileImageNft={currentUser.isProfileImageNft}
           timestamp={tweet.timestamp}
         />
       ))}
