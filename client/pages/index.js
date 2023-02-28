@@ -6,7 +6,7 @@ import { TwitterContext } from "../context/TwitterContext";
 import metamaskLogo from "../assets/metamask.png";
 import errorImg from "../assets/error.png";
 import Image from "next/image";
-
+import { useEffect } from "react";
 const style = {
   //wrapper: `flex justify-center h-auto w-screen select-none bg-[#15202b] text-white`,
   wrapper: ` flex justify-center h-auto w-auto select-none bg-[#15202b] text-white`,
