@@ -28,6 +28,7 @@ function Post({
   timestamp,
   isProfileImageNft,
 }) {
+  const [likeCount, setLikeCount] = useState(0);
   return (
     <div className={style.wrapper}>
       <div>
@@ -70,7 +71,23 @@ function Post({
           <div
             className={`${style.footerIcon} hover:text-[#f91c80] hover:bg-[#39243c]`}
           >
-            <AiOutlineHeart />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "3px",
+                marginTop: "-3px",
+              }}
+            >
+              <AiOutlineHeart
+                onClick={() => setLikeCount((prev) => prev + 1)}
+              />{" "}
+              <span style={{ fontSize: "0.8rem" }}>
+                {" "}
+                {likeCount > 0 ? likeCount : ""}
+              </span>
+            </div>
           </div>
           <div
             className={`${style.footerIcon} hover:text-[#1d9bf0] hover:bg-[#1e364a]`}
