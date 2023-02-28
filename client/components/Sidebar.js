@@ -14,7 +14,12 @@ import {
 import Link from "next/link";
 //
 import SidebarOption from "./SidebarOption";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useRouter } from "next/router";
+import { TwitterContext } from "../context/TwitterContext";
+import Modal from "react-modal";
+import ProfileImageMinter from "../components/mintingModal/ProfileImageMinter";
+import { customStyles } from "../lib/constants";
 
 const style = {
   wrapper: `flex-[0.7] px-8 flex flex-col`,
@@ -33,7 +38,8 @@ const style = {
 
 function Sidebar({ initialSelectedIcon = "Home" }) {
   const [selected, setSelected] = useState(initialSelectedIcon);
-
+  const { currentAccount, currentUser } = useContext(TwitterContext);
+  const router = useRouter();
   return (
     <div className={style.wrapper}>
       <div className={style.twitterIconContainer}>
@@ -85,15 +91,44 @@ function Sidebar({ initialSelectedIcon = "Home" }) {
           redirect={"/profile"}
         />
         <SidebarOption Icon={CgMoreO} text="More" setSelected={setSelected} />
-        <div className={style.tweetButton}>Mint</div>
+        <div
+          onClick={() =>
+            router.push(`${router.pathname}/?mint=${currentAccount}`)
+          }
+          className={style.tweetButton}
+        >
+          Mint
+        </div>
       </div>
       {/* LEFT */}
       <div className={style.profileButton}>
-        <div className={style.profileLeft}></div>
+        <div className={style.profileLeft}>
+          {/* <img
+            src="https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg"
+            alt="profile"
+            className={
+              currentUser.isProfileImageNft
+                ? `${style.profileImage} smallHex`
+                : style.profileImage
+            }
+          /> */}
+          <img
+            src={currentUser.profileImage}
+            alt="profile"
+            className={
+              currentUser.isProfileImageNft
+                ? `${style.profileImage} smallHex`
+                : style.profileImage
+            }
+          />
+        </div>
         <div className={style.profileRight}>
           <div className={style.details}>
-            <div className={style.name}>Matin Kadri</div>
-            <div className={style.handle}>@0.5sd1c....166</div>
+            <div className={style.name}>{currentUser.name}</div>
+            <div className={style.handle}>
+              {" "}
+              @{currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
+            </div>
 
             <div className={style.moreContainer}>
               <FiMoreHorizontal />
@@ -101,6 +136,14 @@ function Sidebar({ initialSelectedIcon = "Home" }) {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={Boolean(router.query.mint)}
+        onRequestClose={() => router.back()}
+        style={customStyles}
+      >
+        <ProfileImageMinter />
+      </Modal>
     </div>
   );
 }
